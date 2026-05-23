@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery — Vanity Ghost Life</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Montserrat:wght@200;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="icon" type="image/png" href="images/icons/favicon.png" />
+  </head>
+  <body>
+    <header>
+      <p class="site-title"><span>Vanity Ghost Life</span></p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="gallery.html" class="active">Gallery</a>
+        <a href="about.html">About Us</a>
+        <a href="contacts.html">Contacts</a>
+      </nav>
+    </header>
+
+    <section class="gallery-hero">
+      <h1>Our <em>Gallery</em></h1>
+      <p class="subtitle">A collection of moments.</p>
+      <div class="hero-divider"></div>
+    </section>
+
+    <div class="gallery-grid">
+      <!-- Item 1 — Featured (large, spans 2 cols + 2 rows) -->
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <!-- Replace with: <img src="your-image.jpg" alt="Description"> -->
+        <img
+          src="images/Characters/VGL-Logo-(with-text).png"
+          alt="Brand Logo"
+        />
+        <div class="overlay"><span class="overlay-text">Featured</span></div>
+      </div>
+
+      <!-- Item 2 -->
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img
+          src="images/Characters/Devil and Angel Heart.png"
+          alt="Devil and Angel Heart"
+        />
+        <div class="overlay"><span class="overlay-text">View</span></div>
+      </div>
+
+      <!-- Item 3 -->
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img
+          src="images/Characters/Fallen Angel (Final).jpg"
+          alt="Fallen Angel"
+        />
+        <div class="overlay"><span class="overlay-text">View</span></div>
+      </div>
+
+      <!-- Item 4 -->
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img
+          src="images/Characters/Hands on petals.png"
+          alt="Hands on Petals"
+        />
+        <div class="overlay"><span class="overlay-text">View</span></div>
+      </div>
+
+      <!-- Item 5 -->
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img src="images/Characters/Fear.jpg" alt="Fear" />
+        <div class="overlay"><span class="overlay-text">View</span></div>
+      </div>
+
+      <!-- Item 6 -->
+      <div class="gallery-item" onclick="openLightbox(this)">
+        <img
+          src="images/Characters/Fear (Skeleton).jpg"
+          alt="Fear in Skeleton Form"
+        />
+        <div class="overlay"><span class="overlay-text">View</span></div>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+      <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+      <img id="lightbox-img" src="" alt="" />
+    </div>
+
+    <footer>
+      <span class="footer-brand">Vanity Ghost Life</span>
+      <span class="footer-copy">&copy; 2026 All rights reserved</span>
+      <div class="footer-links">
+        <a href="gallery.html">Gallery</a>
+        <a href="about.html">About</a>
+        <a href="contacts.html">Contact</a>
+      </div>
+    </footer>
+
+    <script>
+      function openLightbox(item) {
+        const img = item.querySelector("img");
+        if (!img) return; // no lightbox for placeholders
+        document.getElementById("lightbox-img").src = img.src;
+        document.getElementById("lightbox").classList.add("open");
+      }
+
+      function closeLightbox() {
+        document.getElementById("lightbox").classList.remove("open");
+      }
+
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeLightbox();
+      });
+    </script>
+  </body>
+</html>
